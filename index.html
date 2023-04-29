@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="src/style.css">
+  <title>3D flip card</title>
+</head>
+
+<body>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <div id="app">
+    <div class="switch">
+      <input type="checkbox" name="switch-1" id="switch-1" v-model="checkValues">
+      <label for="switch-1"></label>
+    </div>
+    <div :class="['card', checkValues ? 'rotate' : '']">
+      <div class="content">
+        <div class="front">
+          <h2>Black</h2>
+          <img src="crown.jpg" alt="">
+          <p>$10</p>
+          <button>ADD TO CART</button>
+        </div>
+        <div class="back">
+          <h2>RED</h2>
+          <img src="crown2.jpg" alt="">
+          <p>$15</p>
+          <button>ADD TO CART</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+<script>
+  const { createApp } = Vue
+  createApp({
+    data() {
+      return {
+        checkValues: false
+      }
+    }
+  }).mount('#app')
+</script>
+
+</html>
